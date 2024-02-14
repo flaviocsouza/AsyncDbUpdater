@@ -1,0 +1,10 @@
+version: "3"
+services:
+  async-db-updater-api:
+    container_name: async-db-updater-api
+    build:
+      context: ./
+      dockerfile: ./AsyncDbUpdaterApi/Dockerfile
+    ports:
+      - 5000:8080
+      - 443:443
