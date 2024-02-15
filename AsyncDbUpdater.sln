@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncDbUpdaterApi", "AsyncDbUpdaterApi\AsyncDbUpdaterApi.csproj", "{4EEC9D20-5132-4317-8372-5B32F23ADE5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncDbUpdaterSql", "AsyncDbUpdaterSql\AsyncDbUpdaterSql.csproj", "{679FB0CD-0C5A-42C3-8252-BC0D2E60D7C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{4EEC9D20-5132-4317-8372-5B32F23ADE5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EEC9D20-5132-4317-8372-5B32F23ADE5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EEC9D20-5132-4317-8372-5B32F23ADE5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{679FB0CD-0C5A-42C3-8252-BC0D2E60D7C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{679FB0CD-0C5A-42C3-8252-BC0D2E60D7C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{679FB0CD-0C5A-42C3-8252-BC0D2E60D7C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{679FB0CD-0C5A-42C3-8252-BC0D2E60D7C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,5 +1,6 @@
 version: "3"
 services:
+  ###Projects###
   async-db-updater-api:
     container_name: async-db-updater-api
     build:
@@ -8,6 +9,17 @@ services:
     ports:
       - 5000:8080
       - 443:443
+
+  async-db-updater-sql:
+    container_name: async-db-updater-sql
+    build:
+      context: ./
+      dockerfile: ./AsyncDbUpdaterSql/Dockerfile
+    ports:
+      - 6000:8080
+      - 44365:443
+
+  ###Kafka###
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     networks: 
