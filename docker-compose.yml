@@ -1,4 +1,4 @@
-version: "3"
+version: "3.4"
 services:
   ###Projects###
   async-db-updater-api:
@@ -6,6 +6,10 @@ services:
     build:
       context: ./
       dockerfile: ./AsyncDbUpdaterApi/Dockerfile
+    environment:
+      BOOTSTRAP_SERVERS: kafka-broker:9092
+    depends_on:
+      - kafka-broker
     ports:
       - 5000:8080
       - 443:443
@@ -15,23 +19,28 @@ services:
     build:
       context: ./
       dockerfile: ./AsyncDbUpdaterSql/Dockerfile
+    depends_on:
+      - kafka-broker
     ports:
       - 6000:8080
       - 44365:443
 
   ###Kafka###
+
+
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
-    networks: 
-      - broker-kafka
+    container_name: zookeeper
+    ports:
+      - 2181:2181
+    hostname: zookeeper
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
 
-  kafka:
+  kafka-broker:
     image: confluentinc/cp-kafka:latest
-    networks: 
-      - broker-kafka
+    container_name: kafka-broker
     depends_on:
       - zookeeper
     ports:
@@ -39,22 +48,22 @@ services:
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-broker:29092,PLAINTEXT_HOST://localhost:9092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 2
 
-  kafdrop:
-    image: obsidiandynamics/kafdrop:latest
-    networks: 
-      - broker-kafka
-    depends_on:
-      - kafka
-    ports:
-      - 19000:9000
-    environment:
-      KAFKA_BROKERCONNECT: kafka:29092
+#   kafdrop:
+#     image: obsidiandynamics/kafdrop:latest
+#     networks: 
+#       - broker-kafka
+#     depends_on:
+#       - kafka
+#     ports:
+#       - 19000:9000
+#     environment:
+#       KAFKA_BROKERCONNECT: kafka:29092
 
-networks: 
-  broker-kafka:
-    driver: bridge  
+# networks: 
+#   broker-kafka:
+#     driver: bridge  

@@ -16,13 +16,11 @@ public static class KafkaExtensions
                 rider.AddProducer<string, SimpleTextMessage>("SimpleTextMessageTopic");
 
 
-                rider.UsingKafka((context, kafka) =>
-                {
-                    kafka.ClientId = "AsyncDbUpdaterApi";
-                    kafka.Host("http://localhost:9092/");
-                });
+                rider.UsingKafka((context, kafka) => kafka.Host("kafka:29092"));
             });
-        });       
+        });
+
+       
 
         return services;
     }
