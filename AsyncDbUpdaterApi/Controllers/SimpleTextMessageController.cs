@@ -26,24 +26,6 @@ public class SimpleTextMessageController : ControllerBase
             MessageText = "TestMessage"
         }, HttpContext.RequestAborted);
         
-
-        // Console.WriteLine(bootstrapServers);
-
-        // var config = new ProducerConfig
-        // {
-        //     BootstrapServers = bootstrapServers
-        // };
-
-        // var producer = new ProducerBuilder<string, string>(config).Build();
-
-        // var ret = await producer.ProduceAsync("SimpleMessage", new Message<string, string>{
-        //     Key = Guid.NewGuid().ToString(),
-        //     Value = "Teste :)"
-        // });
-
-        // Console.WriteLine(ret.Status);
-        // Console.WriteLine(ret.Value);
-
         return Accepted(":)");
     }
 }

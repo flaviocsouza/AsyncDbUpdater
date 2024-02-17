@@ -14,13 +14,17 @@ services:
       - kafka-broker
     ports:
       - 5000:8080
-      - 443:443
+      - 4431:443
 
   async-db-updater-sql:
     container_name: async-db-updater-sql
     build:
       context: ./
       dockerfile: ./AsyncDbUpdaterSql/Dockerfile
+    networks: 
+      - kafka-network
+    environment:
+      BOOTSTRAP_SERVERS: kafka-broker:9092
     depends_on:
       - kafka-broker
     ports:
