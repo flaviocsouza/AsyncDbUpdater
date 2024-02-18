@@ -2,7 +2,7 @@ using AsyncDbUpdaterApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddKafka();
+builder.Services.AddKafkaRider();
 
 builder.Services.AddControllers();
 

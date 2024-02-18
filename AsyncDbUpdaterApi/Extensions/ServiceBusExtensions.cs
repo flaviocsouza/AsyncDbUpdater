@@ -2,9 +2,9 @@
 
 namespace AsyncDbUpdaterApi;
 
-public static class KafkaExtensions
+public static class ServiceBusExtensions
 {
-    public static IServiceCollection AddKafka(this IServiceCollection services)
+    public static IServiceCollection AddKafkaRider(this IServiceCollection services)
     {
         
         var bootstrapServers = Environment.GetEnvironmentVariable("BOOTSTRAP_SERVERS");
@@ -15,7 +15,6 @@ public static class KafkaExtensions
 
             mt.AddRider(rider => 
             {
-                //Add Producers
                 rider.AddProducer<string, SimpleTextMessage>("SimpleMessage");
 
                 rider.UsingKafka((context, kafka) => kafka.Host(bootstrapServers));

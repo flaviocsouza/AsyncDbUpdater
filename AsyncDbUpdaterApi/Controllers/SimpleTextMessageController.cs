@@ -23,7 +23,7 @@ public class SimpleTextMessageController : ControllerBase
         var messageId = Guid.NewGuid();
         await _producer.Produce(messageId.ToString(), new SimpleTextMessage{
             Id = messageId,
-            MessageText = "TestMessage"
+            MessageText = "Oi Eu sou uma mensagem :)"
         }, HttpContext.RequestAborted);
         
         return Accepted(":)");
