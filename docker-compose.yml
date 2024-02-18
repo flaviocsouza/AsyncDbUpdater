@@ -28,8 +28,8 @@ services:
     depends_on:
       - kafka-broker
     ports:
-      - 6000:8080
-      - 44365:443
+      - 5001:8080
+      - 4432:443
 
   ###Kafka###
 
