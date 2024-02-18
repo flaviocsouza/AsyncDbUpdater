@@ -18,8 +18,6 @@ public class SimpleTextMessageController : ControllerBase
     [HttpGet]
     public async Task<IActionResult>Get()
     {
-        
-        
         var messageId = Guid.NewGuid();
         await _producer.Produce(messageId.ToString(), new SimpleTextMessage{
             Id = messageId,

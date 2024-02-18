@@ -1,4 +1,4 @@
-﻿using Confluent.Kafka;
+﻿
 using MassTransit;
 
 namespace AsyncDbUpdaterSql;

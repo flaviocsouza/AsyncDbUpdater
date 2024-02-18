@@ -12,4 +12,8 @@
     <PackageReference Include="MassTransit.Kafka" Version="8.2.0-develop.1674" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AsyncDbUpdaterShared\AsyncDbUpdaterShared.csproj" />
+  </ItemGroup>
+
 </Project>

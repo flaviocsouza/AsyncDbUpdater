@@ -5,6 +5,14 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
+COPY ["AsyncDbUpdaterShared/AsyncDbUpdaterShared.csproj", "AsyncDbUpdaterShared/" ]
+RUN dotnet restore "AsyncDbUpdaterShared/AsyncDbUpdaterShared.csproj"
+
+WORKDIR "/src/AsyncDbUpdaterShared"
+COPY AsyncDbUpdaterShared/. .
+RUN dotnet build "AsyncDbUpdaterShared.csproj" -c Release -o /app/AsyncDbUpdaterShared/build
+
+WORKDIR /src
 COPY ["AsyncDbUpdaterApi/AsyncDbUpdaterApi.csproj", "AsyncDbUpdaterApi/" ]
 RUN dotnet restore "AsyncDbUpdaterApi/AsyncDbUpdaterApi.csproj"
 

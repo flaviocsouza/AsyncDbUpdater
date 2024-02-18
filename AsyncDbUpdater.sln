@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncDbUpdaterApi", "AsyncD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncDbUpdaterSql", "AsyncDbUpdaterSql\AsyncDbUpdaterSql.csproj", "{679FB0CD-0C5A-42C3-8252-BC0D2E60D7C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncDbUpdaterShared", "AsyncDbUpdaterShared\AsyncDbUpdaterShared.csproj", "{74CCDAC3-554E-4338-9321-BBD8B83283F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{679FB0CD-0C5A-42C3-8252-BC0D2E60D7C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{679FB0CD-0C5A-42C3-8252-BC0D2E60D7C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{679FB0CD-0C5A-42C3-8252-BC0D2E60D7C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74CCDAC3-554E-4338-9321-BBD8B83283F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74CCDAC3-554E-4338-9321-BBD8B83283F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74CCDAC3-554E-4338-9321-BBD8B83283F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74CCDAC3-554E-4338-9321-BBD8B83283F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

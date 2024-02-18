@@ -1,4 +1,5 @@
-﻿using MassTransit;
+﻿using AsyncDbUpdaterShared;
+using MassTransit;
 
 namespace AsyncDbUpdaterSql;
 
@@ -17,6 +18,7 @@ public static class ServiceBusExtensions
             mt.AddRider(rider => 
             {
                 rider.AddConsumer<SimpleTextMessageConsumer>();
+                rider.AddConsumer<RegisterProductConsumer>();
 
                 rider.UsingKafka((context, kafka) =>
                 {
@@ -25,6 +27,11 @@ public static class ServiceBusExtensions
                     kafka.TopicEndpoint<SimpleTextMessage>("SimpleMessage", consumerGroupId, e => 
                     {
                         e.ConfigureConsumer<SimpleTextMessageConsumer>(context);
+                    });
+
+                    kafka.TopicEndpoint<RegisterProductMessage>("Product.Register", consumerGroupId, e => 
+                    {
+                        e.ConfigureConsumer<RegisterProductConsumer>(context);
                     });
                 });
 

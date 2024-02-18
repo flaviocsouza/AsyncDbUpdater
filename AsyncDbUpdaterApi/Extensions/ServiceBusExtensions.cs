@@ -1,4 +1,5 @@
-﻿using MassTransit;
+﻿using AsyncDbUpdaterShared;
+using MassTransit;
 
 namespace AsyncDbUpdaterApi;
 
@@ -16,6 +17,8 @@ public static class ServiceBusExtensions
             mt.AddRider(rider => 
             {
                 rider.AddProducer<string, SimpleTextMessage>("SimpleMessage");
+
+                rider.AddProducer<string, RegisterProductMessage>("Product.Register");
 
                 rider.UsingKafka((context, kafka) => kafka.Host(bootstrapServers));
 
